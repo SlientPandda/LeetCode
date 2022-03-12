@@ -9,7 +9,7 @@ package 模拟;/**
  *@Date 2022/3/10 10:55
  *@Version 1.0
  **/
-public class AddTwoNumbers {
+public class LeetCode2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0); //头节点
         ListNode tmp = head; //哨兵
