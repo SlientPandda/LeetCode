@@ -12,25 +12,28 @@ import java.util.Arrays;
  *@Version 1.0
  **/
 public class LeetCode14 {
-    public static String longestCommonPrefix(String[] strs) {
-        Arrays.sort(strs, (a, b) -> Integer.compare(a.length(), b.length()));
-        String ans = strs[0];
-        int i = 0;
-        while ( i < strs.length&& !"".equals(ans)) {
-            if (!strs[i].substring(0, ans.length()).equals(ans)) {
-                i = 0;
-                ans = ans.substring(0, ans.length() - 1);
+    public String longestCommonPrefix(String[] strs) {
+        String ans = "";
+        if (strs.length == 0) {
+            return ans;
+        }
+        for (int i = 0; i < 200; i++) {
+            String s = strs[0];
+            if (i >= s.length()) {
+                return ans;
             }
-            else{
-                i++;
+            char c = strs[0].charAt(i);
+            for (String ss : strs) {
+                if (i >= ss.length() || ss.charAt(i) != c) {
+                    return ans;
+                }
             }
+//          原答案是这个：  ans += s.charAt(i); 通过时间10ms 换成valueOf之后为1ms
+//          原因是charAt方法返回的char是基本变量，直接与字符串相加涉及到装箱拆箱的操作，而String.valueOf方法返回的是字符串，相加不涉及装拆箱
+            ans +=String.valueOf(c);
         }
         return ans;
     }
 
-    public static void main(String[] args){
-        String[] s = new String[]{"flower","flow","flight"};
-        System.out.println(longestCommonPrefix(s));
-    }
 
 }
