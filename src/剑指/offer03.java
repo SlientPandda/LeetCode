@@ -16,20 +16,19 @@ import java.util.Set;
  **/
 public class offer03 {
     public int findRepeatNumber(int[] nums) {
-        //        第三版
+        //  第三版 0ms
         int i =0;
         while (i<nums.length){
             if(nums[i]==i){
+                i++;
                 continue;
             }
             if(nums[nums[i]]==nums[i]) return nums[i];
             int tmp = nums[i];
-            nums[i]=nums[nums[i]];
-            nums[nums[i]]
+            nums[i]=nums[tmp];
+            nums[tmp] = tmp;
         }
-
-
-
+        return -1;
 //        第二版：Set方法 6ms
 //        Set<Integer> set = new HashSet<>();
 //        for (int number : nums) {
