@@ -3,6 +3,7 @@ package 剑指;/**
  */
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,23 +14,35 @@ import java.util.List;
  *@Version 1.0
  **/
 public class offer06 {
-    public static List<Integer> res = new ArrayList<>();
+//    1、递归法 时间复杂度O(N) 空间复杂度O(N)
+//    public List<Integer> res = new ArrayList<>();
+//    public int[] reversePrint(ListNode head) {
+//        recur(head);
+//        int[] resInt = new int[res.size()];
+//        for (int i = 0; i < res.size(); i++) {
+//            resInt[i] = res.get(i);
+//        }
+//        return resInt;
+//    }
+//
+//    public void recur(ListNode head) {
+//        if (head == null) return;
+//        recur(head.next);
+//        res.add(head.val);
+//    }
 
-    public static int[] reversePrint(ListNode head) {
-
+//    2、辅助栈法 时间复杂度O(N) 空间复杂度O(N)
+    public int[] reversePrint(ListNode head) {
+        LinkedList<Integer> stack = new LinkedList<Integer>();
+        while(head != null) {
+            stack.addLast(head.val);
+            head = head.next;
+        }
+        int[] res = new int[stack.size()];
+        for(int i = 0; i < res.length; i++)
+            res[i] = stack.removeLast();
+        return res;
     }
-
-    public static void recur(ListNode head) {
-        if (head == null) return;
-        recur(head.next);
-        res.add(head.val);
-    }
-
-
-    public static void main(String[] args) {
-        reversePrint(null);
-    }
-
 
     class ListNode {
         int val;
