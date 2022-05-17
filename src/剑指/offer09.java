@@ -2,7 +2,6 @@ package 剑指;/**
  *
  */
 
-import java.util.Objects;
 import java.util.Stack;
 
 /**
@@ -16,7 +15,7 @@ public class offer09 {
     Stack<Integer> stack1 = new Stack<>();
     Stack<Integer> stack2 = new Stack<>();
 
-    public CQueue() {
+    public void CQueue() {
     }
 
     public void appendTail(int value) {
