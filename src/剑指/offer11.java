@@ -16,7 +16,21 @@ public class offer11 {
 //            if (numbers[i] < numbers[i - 1]) return numbers[i];
 //        }
 //        return numbers[0];
+        //二分法 时间复杂度O(logN) 空间复杂度 O(1) 最坏情况下 数组中都是重复元素，则每次都要右边界左移，则此时时间复杂度为O(N)
+        int low = 0;
+        int high = numbers.length - 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (numbers[mid] < numbers[high]) {
+                high = mid;
+            } else if (numbers[mid] > numbers[high]) {
+                low = mid + 1;
+            } else {
+                high -= 1;
+            }
 
+        }
+        return numbers[low];
 
     }
 }
