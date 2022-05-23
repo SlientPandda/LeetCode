@@ -28,7 +28,6 @@ public class offer11 {
             } else {
                 high -= 1;
             }
-
         }
         return numbers[low];
 
