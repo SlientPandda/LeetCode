@@ -1,11 +1,6 @@
-package 剑指;/**
+package 算法.剑指;/**
  *
  */
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 /**
  *@ClassName offer03

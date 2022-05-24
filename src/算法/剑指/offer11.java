@@ -1,10 +1,10 @@
-package 剑指;/**
+package 算法.剑指;/**
  *
  */
 
 /**
  *@ClassName offer11
- *@Description 剑指 Offer 11. 旋转数组的最小数字
+ *@Description 算法.剑指 Offer 11. 旋转数组的最小数字
  *@Author wuhao51
  *@Date 2022/5/17 11:25
  *@Version 1.0

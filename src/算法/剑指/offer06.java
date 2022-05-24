@@ -1,10 +1,8 @@
-package 剑指;/**
+package 算法.剑指;/**
  *
  */
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  *@ClassName offer06

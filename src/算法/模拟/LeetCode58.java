@@ -1,10 +1,7 @@
-package 模拟;/**
+package 算法.模拟;/**
  *
  */
 
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  *@ClassName LeetCode58

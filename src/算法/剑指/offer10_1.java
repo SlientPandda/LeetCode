@@ -1,10 +1,10 @@
-package 剑指;/**
+package 算法.剑指;/**
  *
  */
 
 /**
  *@ClassName offer10_1
- *@Description 剑指 Offer 10- I. 斐波那契数列
+ *@Description 算法.剑指 Offer 10- I. 斐波那契数列
  *@Author wuhao51
  *@Date 2022/5/16 11:41
  *@Version 1.0

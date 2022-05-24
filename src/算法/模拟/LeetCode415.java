@@ -1,8 +1,6 @@
-package 模拟;/**
+package 算法.模拟;/**
  *
  */
-
-import java.util.Arrays;
 
 /**
  *@ClassName LeetCode415

@@ -1,10 +1,10 @@
-package 剑指;/**
+package 算法.剑指;/**
  *
  */
 
 /**
  *@ClassName offer12
- *@Description 剑指 Offer 12. 矩阵中的路径
+ *@Description 算法.剑指 Offer 12. 矩阵中的路径
  *@Author wuhao51
  *@Date 2022/5/17 16:34
  *@Version 1.0

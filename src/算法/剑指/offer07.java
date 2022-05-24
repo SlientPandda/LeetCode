@@ -1,8 +1,8 @@
-package 剑指;/**
+package 算法.剑指;/**
  *
  */
 
-import DataStructure.TreeNode;
+import 算法.DataStructure.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
