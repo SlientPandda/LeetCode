@@ -12,6 +12,7 @@ import 算法.DataStructure.TreeNode;
  *@Version 1.0
  **/
 public class offer28 {
+    //time O(N) 树节点 space O(N)
     public boolean isSymmetric(TreeNode root) {
         return root == null ? true : recur(root.left, root.right);
     }
