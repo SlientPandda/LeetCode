@@ -13,7 +13,7 @@ import java.util.Map;
  *@Version 1.0
  **/
 public class LeetCode395 {
-    public static int longestSubstring(String s, int k) {
+    public int longestSubstring(String s, int k) {
         //time O(N*26*26)   space O(26*26)
         //如果长度小于k 直接返回0
         if (s.length() < k) return 0;
@@ -35,10 +35,6 @@ public class LeetCode395 {
             }
         }
         return s.length();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(longestSubstring("aaabb", 3));
     }
 
 
