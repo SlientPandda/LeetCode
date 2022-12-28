@@ -11,6 +11,6 @@ package 算法.codetop;/**
  **/
 public class LeetCode59 {
     public int[][] generateMatrix(int n) {
-
+        return new int[1][2];
     }
 }
