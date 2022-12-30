@@ -13,7 +13,7 @@ public class ListNode {
     public int val;
     public ListNode next;
 
-    public ListNode(){
+    public ListNode() {
 
     }
 
@@ -24,5 +24,15 @@ public class ListNode {
     public ListNode(int x, ListNode node) {
         val = x;
         next = node;
+    }
+
+    public String print() {
+        StringBuilder stringBuilder = new StringBuilder();
+        ListNode head = this;
+        while (head != null) {
+            stringBuilder.append(head.val + "->");
+            head = head.next;
+        }
+        return stringBuilder.toString();
     }
 }
