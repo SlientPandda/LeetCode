@@ -9,7 +9,7 @@ package 算法.面试题;/**
  *@Date 2022/5/13 16:21
  *@Version 1.0
  **/
-public class interview0105 {
+public class Interview0105 {
     public static boolean oneEditAway(String a, String b) {
         //第一版自己
 //        int firstLen = first.length();
