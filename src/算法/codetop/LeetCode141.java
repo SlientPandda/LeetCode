@@ -14,7 +14,7 @@ import 算法.DataStructure.ListNode;
 public class LeetCode141 {
     public boolean hasCycle(ListNode head) {
         ListNode fast = head, slow = head;
-        while (fast != null && slow != null && fast.next != null) {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow) {
