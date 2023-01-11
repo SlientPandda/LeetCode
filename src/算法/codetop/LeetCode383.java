@@ -16,7 +16,7 @@ import java.util.Set;
  **/
 public class LeetCode383 {
     public boolean canConstruct(String ransomNote, String magazine) {
-//        碰到字母表，优先考虑数组
+//        碰到字母表或者key有自然序的，优先考虑数组
         int[] alpha = new int[26];
         for (char c : magazine.toCharArray()) {
             alpha[c - 'a']++;
