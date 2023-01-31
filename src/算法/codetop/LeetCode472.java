@@ -14,10 +14,10 @@ import java.util.*;
  *@Version 1.0
  **/
 public class LeetCode472 {
-    private static Set<String> dict;
-    private static List<String> res;
+    private Set<String> dict;
+    private List<String> res;
 
-    public static List<String> findAllConcatenatedWordsInADict(String[] words) {
+    public List<String> findAllConcatenatedWordsInADict(String[] words) {
         dict = new HashSet<>();
         res = new ArrayList<>();
         dict.addAll(Arrays.asList(words));
@@ -28,7 +28,7 @@ public class LeetCode472 {
     }
 
     //判断当前字符串是否是连接词
-    private static Boolean isContactWords(String s, int count, int start) {
+    private Boolean isContactWords(String s, int count, int start) {
         //如果起始点比字符串长度长，代表已走完字符串，并且计数大于1，则说明是连接词
         if (start >= s.length() && count > 1) return true;
         StringBuilder sb = new StringBuilder();
@@ -37,12 +37,6 @@ public class LeetCode472 {
             if (dict.contains(sb.toString()) && isContactWords(s, count + 1, i + 1)) return true;
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(findAllConcatenatedWordsInADict(new String[]{
-                "cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"
-        }));
     }
 
 }
