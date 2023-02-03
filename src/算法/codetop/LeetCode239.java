@@ -16,7 +16,7 @@ import java.util.Arrays;
  * 空间复杂度 O(K)单调队列长度
  **/
 public class LeetCode239 {
-    public static int[] maxSlidingWindow(int[] nums, int k) {
+    public int[] maxSlidingWindow(int[] nums, int k) {
         int[] res = new int[nums.length - k + 1];
         int j = 0;
         //单调队列存储当前滑动窗口内可能最大的值对应的nums数组下标，从头到尾由大到小
@@ -37,9 +37,5 @@ public class LeetCode239 {
             }
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
     }
 }
