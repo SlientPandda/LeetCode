@@ -10,6 +10,8 @@ import java.util.*;
  *@Author wuhao51
  *@Date 2023/2/3 14:42
  *@Version 1.0
+ * 时间复杂度：O(NlogK)
+ * 空间复杂度：O(N)
  **/
 public class LeetCode347 {
     /**
@@ -20,7 +22,7 @@ public class LeetCode347 {
      * @param k
      * @return
      */
-    public static int[] topKFrequent(int[] nums, int k) {
+    public int[] topKFrequent(int[] nums, int k) {
         //key-num,value-frequency
         HashMap<Integer, Integer> freMap = new HashMap<>();
         for (int num : nums) {
@@ -43,9 +45,5 @@ public class LeetCode347 {
             res[i] = pq.poll()[0];
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2)));
     }
 }
