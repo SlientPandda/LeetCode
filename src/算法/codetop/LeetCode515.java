@@ -9,40 +9,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *@ClassName LeetCode199
- *@Description
+ *@ClassName LeetCode515
+ *@Description TODO
  *@Author wuhao51
- *@Date 2023/2/6 19:41
+ *@Date 2023/2/7 13:45
  *@Version 1.0
  **/
-public class LeetCode199 {
-    public List<Integer> resList = new ArrayList<Integer>();
+public class LeetCode515 {
+    public ArrayList<Integer> resList = new ArrayList<>();
 
-    public List<Integer> rightSideView(TreeNode root) {
+    public List<Integer> largestValues(TreeNode root) {
         iterate(root);
         return resList;
     }
 
-    /**
-     * 迭代打印出层序节点值
-     * 时间复杂度: O(N)
-     * 空间复杂度: O(N)
-     * @param root
-     */
-    public void iterate(TreeNode root) {
+    private void iterate(TreeNode root) {
         if (root == null) return;
         ArrayDeque<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int len = queue.size();
-            TreeNode tmpNode = new TreeNode();
+            int max = Integer.MIN_VALUE;
             while (len > 0) {
-                tmpNode = queue.poll();
+                TreeNode tmpNode = queue.poll();
+                if (tmpNode.val > max) max = tmpNode.val;
                 if (tmpNode.left != null) queue.offer(tmpNode.left);
                 if (tmpNode.right != null) queue.offer(tmpNode.right);
                 len--;
             }
-            resList.add(tmpNode.val);
+            resList.add(max);
         }
     }
 }
