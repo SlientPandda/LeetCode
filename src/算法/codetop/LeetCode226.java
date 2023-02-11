@@ -26,4 +26,6 @@ public class LeetCode226 {
         recur(root.left);
         recur(root.right);
     }
+
+
 }
