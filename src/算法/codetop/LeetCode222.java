@@ -36,4 +36,24 @@ public class LeetCode222 {
         }
         return sum;
     }
+
+    //完全二叉树的递归算法
+    //时间复杂度：O(log n × log n)
+    //空间复杂度：O(log n)
+    private int recur(TreeNode root) {
+        if (root == null) return 0;
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        int leftDepth = 1, rightDepth = 1;
+        while (left != null) {
+            left = left.left;
+            leftDepth++;
+        }
+        while (right != null) {
+            right = right.right;
+            rightDepth++;
+        }
+        if (leftDepth == rightDepth) return (1 << leftDepth) - 1;
+        return recur(root.left) + recur(root.right) + 1;
+    }
 }
