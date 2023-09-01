@@ -17,12 +17,13 @@ import java.util.Map;
 public class LeetCode17 {
     //0 <= digits.length <= 4
     //digits[i] 是范围 ['2', '9'] 的一个数字。
+    //时间复杂度O（3^m*4^n）m是输入中对应3个字母的数字个数，n是输入中对应4个字母的数字个数
+    //空间复杂度O（m+n）递归层数
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
         if (digits.length() == 0) return res;
 
-        Map<Character, String> map = new HashMap<>() {
-        };
+        Map<Character, String> map = new HashMap<>();
         map.put('2', "abc");
         map.put('3', "def");
         map.put('4', "ghi");
