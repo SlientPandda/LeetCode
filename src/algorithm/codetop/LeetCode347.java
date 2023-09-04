@@ -29,7 +29,7 @@ public class LeetCode347 {
             freMap.put(num, freMap.getOrDefault(num, 0) + 1);
         }
         //使用优先队列，对频率进行排序，底层原理是大顶堆、小顶堆
-        //comparator:返回负数，参数一排前面；返回正数，参数二排前面
+        //comparator:o1-o2，正序；o2-o1，逆序；
         //使用大小为k的小顶堆来实现，小元素弹出，遍历完成后留下前k个最大元素
         PriorityQueue<int[]> pq = new PriorityQueue<>((pair1, pair2) -> pair1[1] - pair2[1]);
         for (Map.Entry<Integer, Integer> entry : freMap.entrySet()) {
