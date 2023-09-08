@@ -3,6 +3,7 @@ package algorithm.codetop;/**
  */
 
 import java.util.ArrayDeque;
+import java.util.TimerTask;
 
 /**
  *@ClassName LeetCode32
@@ -41,6 +42,7 @@ public class LeetCode32 {
         return res;
     }
 
+    //动态规划，时间复杂度：O(N)，空间复杂度：O(N)
     private int solution2(String s) {
         //设 dp 数组，其中第 i个元素表示以下标为 i 的字符结尾的最长有效子字符串的长度。
         int[] dp = new int[s.length()];
@@ -60,6 +62,43 @@ public class LeetCode32 {
             else if (i - dp[i - 1] > 0 && s.charAt(i - dp[i - 1] - 1) == '(')
                 dp[i] = dp[i - 1] + 2 + (i - dp[i - 1] >= 2 ? dp[i - dp[i - 1] - 2] : 0);
             res = Math.max(res, dp[i]);
+        }
+        return res;
+    }
+
+    //两遍扫描，时间复杂度：O(N)，空间复杂度：O(1)
+    private int solution3(String s) {
+        //两个计数器left和right，首先从左到右遍历字符串，
+        //对于遇到的每个'('，我们增加left计数器，对于遇到的每个')'，增加right计数器。
+        //每当left计数器与right计数器相等时，我们计算当前有效字符串的长度
+        //由于有效括号对字符串的性质是任意前缀的左字符大于右字符，所以每次当右一旦超过左之后就计数清零，能继续计数的只有左多的情况，一旦相等就是右字符补上来了。
+        //所以当前有效字符串的长度可以直接left*2。
+        // 这样做法是贪心地考虑以当前字符下标结尾的有效括号长度，每当右括号数多于左括号数量的时候之前的字符我们都扔掉不再考虑，重新从下一个字符开始计算，
+        // 但这样会漏掉遍历的时候左括号数量始终大于右括号数量的情况，这个时候最长有效括号长度是求不出来的。
+        // 解决的方法也很简单，只需要从右往左遍历用类似的方法计算即可。判断条件反过来：当左比右大时，将计数器清零。
+        int left = 0, right = 0;
+        int res = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+            if (left == right) {
+                res = Math.max(res, left * 2);
+            } else if (right > left) {
+                right = 0;
+                left = 0;
+            }
+        }
+        left = 0;
+        right = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+            if (left == right) {
+                res = Math.max(res, left * 2);
+            } else if (left > right) {
+                right = 0;
+                left = 0;
+            }
         }
         return res;
     }
