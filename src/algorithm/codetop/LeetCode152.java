@@ -14,7 +14,13 @@ import java.util.Arrays;
  *@Version 1.0
  **/
 public class LeetCode152 {
-    public static int maxProduct(int[] nums) {
+    /**
+     * 时间复杂度 O（N）
+     * 空间复杂度 O（1）
+     * @param nums
+     * @return
+     */
+    public int maxProduct(int[] nums) {
         // 1、如果当前元素大于0，则乘以
         // 确定dp数组含义： 以i为结尾的连续子数组的乘积最大值。
         // 如果当前位置是负数的话，会考虑以其前一个位置结尾的某个积也是负数，这样整体乘积更大。
@@ -32,25 +38,17 @@ public class LeetCode152 {
         //fmax(i) := max{fmax(i - 1) x ai, fmin(i - 1) x a, ai}=1fmin(i)min{fmax(i - 1) x ai, fmin(i - 1) x ai, ai}n=1
         //它代表第 个元素结尾的乘积最大子数组的乘积fmax(i)，可以考虑把α加入第－1 个元素结尾的乘积最大或最小的子数组的乘积中，二者加上α，三者取大，就是第个元素结尾的乘积最大子数组的乘积。第个元素结尾的乘积最小子数组的乘积fmin(i)同理。
 
-
-
-        int[] min = Arrays.copyOf(nums, nums.length);
-        int[] max = Arrays.copyOf(nums, nums.length);
+        int min = nums[0];
+        int max = nums[0];
+        int ans = max;
 
         for (int i = 1; i < nums.length; i++) {
-            max[i] = Math.max(max[i - 1] * nums[i], Math.max(min[i - 1] * nums[i], nums[i]));
-            min[i] = Math.min(min[i - 1] * nums[i], Math.min(max[i - 1] * nums[i], nums[i]));
-        }
-
-        int ans = max[0];
-        for (int i = 0; i < nums.length; i++) {
-            ans = Math.max(ans, max[i]);
+            int mx = max, mn = min;
+            max = Math.max(mx * nums[i], Math.max(mn * nums[i], nums[i]));
+            min = Math.min(mn * nums[i], Math.min(mx * nums[i], nums[i]));
+            ans = Math.max(ans, max);
         }
 
         return ans;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(maxProduct(new int[]{2, 3, -2, 4}));
     }
 }
