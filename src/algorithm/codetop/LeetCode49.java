@@ -18,7 +18,7 @@ public class LeetCode49 {
         //如果一个字符串是另一个字符串的字母异位词，那么这两个字符串都按字典序排序后一定是相同的字符串。
         //那么可以使用哈希表的方法，将排序后的字符串作为key值，同一个字典序的字符串列表作为value值。最后将哈希表的values返回。
         Map<String, List<String>> map = new HashMap<>();
-        for(String s : strs){
+        for (String s : strs) {
             char[] chars = s.toCharArray();
             Arrays.sort(chars);
             String key = new String(chars);
