@@ -3,40 +3,36 @@ package algorithm.binarytree;/**
  */
 
 import algorithm.datastructure.TreeNode;
-import algorithm.util.TreeUtil;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
 /**
- *@ClassName LeetCode103
+ *@ClassName LeetCode102
  *@Description TODO
  *@Author wuhao51
- *@Date 2024/6/20 23:19
+ *@Date 2024/6/25 14:31
  *@Version 1.0
  **/
-public class LeetCode103 {
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        // 整体流程和层序遍历一样，只不过收集结果的列表有顺序区别
+public class LeetCode102 {
+    public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> resList = new ArrayList<>();
+        // 使用队列保存一层的数据
         if (root == null) return resList;
         Deque<TreeNode> deque = new ArrayDeque<>();
         deque.offer(root);
-        boolean leftBegin = true;
         while (!deque.isEmpty()) {
-            List<Integer> list = new ArrayList<>();
+            ArrayList<Integer> list = new ArrayList<>();
             int size = deque.size();
             while (list.size() < size) {
                 TreeNode poll = deque.poll();
-                if (leftBegin) {
-                    list.add(poll.val);
-                } else {
-                    list.add(0, poll.val);
-                }
+                list.add(poll.val);
                 if (poll.left != null) deque.offer(poll.left);
                 if (poll.right != null) deque.offer(poll.right);
             }
             resList.add(list);
-            leftBegin = !leftBegin;
         }
         return resList;
     }
