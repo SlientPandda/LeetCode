@@ -1,4 +1,4 @@
-package algorithm.codetop;/**
+package algorithm.binarytree;/**
  *
  */
 
@@ -23,7 +23,6 @@ public class LeetCode107 {
         Collections.reverse(resList);
         return resList;
     }
-
     /**
      * 递归打印出层序的节点值
      * 时间复杂度: O(N)
