@@ -1,4 +1,4 @@
-package algorithm.codetop;/**
+package algorithm.binarytree;/**
  *
  */
 
@@ -16,9 +16,9 @@ import java.util.List;
  *@Version 1.0
  **/
 public class LeetCode637 {
-    public static List<Double> resList = new ArrayList<>();
+    public List<Double> resList = new ArrayList<>();
 
-    public static List<Double> averageOfLevels(TreeNode root) {
+    public List<Double> averageOfLevels(TreeNode root) {
         iterate(root);
         return resList;
     }
@@ -29,7 +29,7 @@ public class LeetCode637 {
      * 空间复杂度: O(N)
      * @param root
      */
-    public static void iterate(TreeNode root) {
+    public void iterate(TreeNode root) {
         if (root == null) return;
         //创建一个队列，存储当前层级所有节点
         ArrayDeque<TreeNode> que = new ArrayDeque<TreeNode>();
@@ -48,12 +48,5 @@ public class LeetCode637 {
             }
             resList.add((double) sum / num);
         }
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(2147483647);
-        root.left = new TreeNode(2147483647);
-        root.right = new TreeNode(2147483647);
-        System.out.println(averageOfLevels(root));
     }
 }
