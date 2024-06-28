@@ -1,6 +1,8 @@
-package algorithm.codetop;/**
+package algorithm.binarytree;/**
  *
  */
+
+import algorithm.binarytree.Node;
 
 import java.util.ArrayDeque;
 

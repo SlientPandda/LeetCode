@@ -1,4 +1,4 @@
-package algorithm.codetop;/**
+package algorithm.binarytree;/**
  *
  */
 
