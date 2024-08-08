@@ -6,7 +6,7 @@ import algorithm.datastructure.ListNode;
 
 /**
  *@ClassName LeetCode83
- *@Description TODO
+ *@Description 删除排序链表中的重复元素
  *@Author wuhao51
  *@Date 2024/8/2 17:02
  *@Version 1.0
