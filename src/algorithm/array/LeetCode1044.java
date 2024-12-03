@@ -5,5 +5,6 @@ package algorithm.array;
  */
 public class LeetCode1044 {
     public String longestDupSubstring(String s) {
+        // main --- 1
     }
 }
